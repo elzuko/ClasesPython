@@ -1,2 +1,18 @@
-hola
-hola 2
+import psycopg2
+
+# parametros de base de datos
+conexion = {
+    'host': 'localhost',
+    'port':'5432',
+    'database' : 'python',
+    'user': 'openpg',
+    'password': 'openpgpwd'
+}
+
+# probando conexion
+try:
+    conecta : psycopg2.connect(**conexion)
+    cursor : conecta.cursor()
+    print ('conexion exitosa')
+except (Exception,psycopg2.Error ) as error:
+    print('Ocurrio un error, error')
