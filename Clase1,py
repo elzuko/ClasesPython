@@ -11,8 +11,38 @@ conexion = {
 
 # probando conexion
 try:
-    conecta : psycopg2.connect(**conexion)
-    cursor : conecta.cursor()
+    conecta = psycopg2.connect(**conexion)
+    cursor = conecta.cursor()
     print ('conexion exitosa')
 except (Exception,psycopg2.Error ) as error:
-    print('Ocurrio un error, error')
+    print('Ocurrio un error', error)
+
+# creacion de tabla
+
+#crear_table_unica = 'create table if not exists producto ( codigo serial primary key,nombre varchar(50), descripcion varchar(250));'
+#cursor.execute(crear_table_unica)
+#conecta.commit()
+
+#Inserta Datos
+
+nnombre = 'cafetera'
+ndescripcion = 'cafetera italiana de tres tazas'
+
+
+#insertardatos = ''' insert into producto 
+#(nombre,descripcion)
+#values (%s,%s)
+#'''
+try:
+    cursor.execute("INSERT INTO producto (nombre,descripcion) VALUES (%s,%s)",(nnombre,ndescripcion))
+    conecta.commit()
+    print('fin')
+except (Exception,psycopg2.Error ) as error:
+    print('Ocurrio un error insert', error)
+
+    # crear un ciclo while y pedir datos hay insertar hasta responder si continuo o no
+    # ingresr datos producto y descripcion
+    # cursor.execute y coencta.commit()
+    # condicion del ciclo
+    # dos probar la consulta y update desde python colocarlo en otro .py
+
