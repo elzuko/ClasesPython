@@ -23,6 +23,11 @@ except (Exception,psycopg2.Error ) as error:
 #cursor.execute(crear_table_unica)
 #conecta.commit()
 
+
+
+ 
+
+
 #Inserta Datos
 
 nnombre = 'cafetera'
@@ -36,7 +41,7 @@ ndescripcion = 'cafetera italiana de tres tazas'
 try:
     cursor.execute("INSERT INTO producto (nombre,descripcion) VALUES (%s,%s)",(nnombre,ndescripcion))
     conecta.commit()
-    print('fin')
+    
 except (Exception,psycopg2.Error ) as error:
     print('Ocurrio un error insert', error)
 
@@ -45,4 +50,16 @@ except (Exception,psycopg2.Error ) as error:
     # cursor.execute y coencta.commit()
     # condicion del ciclo
     # dos probar la consulta y update desde python colocarlo en otro .py
+inombre=' ' 
+idescripcion=' '
+while True:
+    inombre = input('introducza nombre , si quiere salir tipee salir: ')
+    if inombre == 'salir':
+        break
+    idescripcion =input('introducza descripcion: ')
+    cursor.execute("INSERT INTO producto (nombre,descripcion) VALUES (%s,%s)",(inombre,idescripcion))
+    conecta.commit()
+    print('Insercion Exitosa')
 
+    if inombre == 'salir':
+        break
