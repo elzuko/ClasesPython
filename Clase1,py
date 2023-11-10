@@ -37,14 +37,13 @@ ndescripcion = 'cafetera italiana de tres tazas'
 #insertardatos = ''' insert into producto 
 #(nombre,descripcion)
 #values (%s,%s)
-#'''
-try:
-    cursor.execute("INSERT INTO producto (nombre,descripcion) VALUES (%s,%s)",(nnombre,ndescripcion))
-    conecta.commit()
-    
-except (Exception,psycopg2.Error ) as error:
-    print('Ocurrio un error insert', error)
 
+'''try:
+   cursor.execute("INSERT INTO producto (nombre,descripcion) VALUES (%s,%s)",(nnombre,ndescripcion))
+    conecta.commit()
+    except (Exception,psycopg2.Error ) as error:
+    print('Ocurrio un error insert', error) '''
+    
     # crear un ciclo while y pedir datos hay insertar hasta responder si continuo o no
     # ingresr datos producto y descripcion
     # cursor.execute y coencta.commit()
@@ -65,6 +64,10 @@ while True:
 
 ############
  
+#cursor.execute("select * from producto")
+
+cursor.execute("UPDATE public.producto set descripcion= 'Dominguez' where descripcion = 'Soto'")
+
 cursor.execute("select * from producto")
 
 resultados = cursor.fetchall()
