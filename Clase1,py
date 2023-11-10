@@ -53,7 +53,7 @@ except (Exception,psycopg2.Error ) as error:
 inombre=' ' 
 idescripcion=' '
 while True:
-    inombre = input('introducza nombre , si quiere salir tipee salir: ')
+    inombre = input('introducza nombre , si quiere SALIR tipee salir: ')
     if inombre == 'salir':
         break
     idescripcion =input('introducza descripcion: ')
@@ -61,5 +61,23 @@ while True:
     conecta.commit()
     print('Insercion Exitosa')
 
-    if inombre == 'salir':
-        break
+  
+
+############
+ 
+cursor.execute("select * from producto")
+
+resultados = cursor.fetchall()
+
+# Iterar sobre los resultados
+for fila in resultados:
+    print(fila)
+
+# Cerrar el cursor y la conexión
+cursor.close()
+conecta.close()
+
+
+
+
+
