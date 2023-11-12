@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 # crear metodo para realizar un crud
-# cundo la sintaxis comineza con arroba se denomina DECORADORES
+# cuando la sintaxis comineza con arroba se denomina DECORADORES
 # permite modificar la caracteristica de un metodo, en este caso vamos a modificar la URL
 
 
