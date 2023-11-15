@@ -125,7 +125,7 @@ def insertar_masivo():
 # utilizando metodos POST GET DELete 
 # con un JSON
 
-@app.route("/api/MOdificar_registro/", methods = ['POST'])
+@app.route("/api/MOdificar_registro/", methods = ['PUT'])
 def MOdificar_registro():
  
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class  = "text-center mt-5 mb-5 text-primary">Menu Principal</h1>
+    <div class = "container">  
+        <div  class = "card shadow">
+            <div class ="card-body">
+                <form action="" method="POST">
+                    <div class = "row mb-3">
+                        <div class ="col">
+                            <label>codigo</label>
+                            <input type ="text" class ="form-control mb-3" name ="codigo">
+                        </div>
+                        <div class ="col">
+                            <label>nombre</label>
+                            <input type ="text" class ="form-control mb-3" name ="nombre">
+                        </div>
+                        <div class ="col">
+                            <label>descripcion</label>
+                            <input type ="text" class ="form-control mb-3" name ="descripcion">
+                        </div>
+                        <div class ="col">
+                            <button class ="btn-primary mb-3" type ="submit">save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table class = "table table-bordered">
+                <thead>
+                    <th scope = "col">CODIGO</th>
+                    <th scope = "col">NOMBRE</th>
+                    <th scope = "col">DESCRIPCION</th>
+                    <th scope = "col">Editar</th>
+                    <th scope = "col">Borrar</th>
+                </thead>
+                <tbody>
+                    {% for d in data %}
+                    <tr>
+                        <td>{{d.codigo}}</td>
+                        <td>{{d.nombre}}</td>
+                        <td>{{d.descripcion}}</td>
+                        <td><button class ="btn brn-primary btn-sm" id="" > Editar</button></td>
+                        <td><button class = "btn btn-primary btn-sm"> Borrar</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+</body>
+</html>
